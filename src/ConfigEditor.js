@@ -7,7 +7,7 @@ export class ConfigEditor extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { guid: "34", config: "77" };
+    this.state = {};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,7 +41,7 @@ export class ConfigEditor extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>
-            Name:
+            ConfigId:
             <input
               type="text"
               name="name"
@@ -49,7 +49,7 @@ export class ConfigEditor extends React.Component {
               onChange={this.handleChange}
             />
           </label>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Load" />
         </form>
         <h2>{JSON.stringify(this.state, null, 2)}</h2>
       </div>

@@ -1,6 +1,5 @@
 import React from "react";
 import "./styles.css";
-import { Start } from "./Start";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ConfigEditor } from "./ConfigEditor";
 
