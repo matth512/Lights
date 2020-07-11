@@ -7,7 +7,7 @@ export class ConfigEditor extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = { lat: 0.0, long: 0.0 };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,8 +19,32 @@ export class ConfigEditor extends React.Component {
 
   handleSubmit(event) {
     // alert("A name was submitted: " + this.state.value);
-    event.preventDefault();
     this.reloadData();
+    event.preventDefault();
+  }
+
+  handleSubmitSave(event) {
+    // alert("A name was submitted: " + this.state.value);
+    const myObj = { guid: this.state.value, c: {} };
+    myObj.c.lat = this.state.lat;
+    myObj.c.long = this.state.long;
+
+    const output = JSON.stringify(myObj);
+    console.log(output);
+    fetch(api + this.state.value, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: output
+    })
+      .then(response => response.text())
+      .then(data => {
+        console.log("Success:", data);
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
   }
 
   reloadData() {
@@ -31,7 +55,7 @@ export class ConfigEditor extends React.Component {
     })
       .then(response => response.json())
       //   .then(data => console.log(data));
-      .then(data => this.setState(data));
+      .then(data => this.setState(data.c));
   }
 
   componentDidMount() {}
@@ -49,7 +73,26 @@ export class ConfigEditor extends React.Component {
               onChange={this.handleChange}
             />
           </label>
+          <label>
+            Lat:
+            <input
+              type="text"
+              name="name"
+              value={this.state.lat}
+              onChange={event => this.setState({ lat: event.target.value })}
+            />
+          </label>
+          <label>
+            Long:
+            <input
+              type="text"
+              name="name"
+              value={this.state.long}
+              onChange={event => this.setState({ long: event.target.value })}
+            />
+          </label>
           <input type="submit" value="Load" />
+          <button onClick={this.handleSubmitSave.bind(this)}>Save</button>
         </form>
         <h2>{JSON.stringify(this.state, null, 2)}</h2>
       </div>
