@@ -51,6 +51,9 @@ export class ConfigEditor extends React.Component {
     console.log("here");
     fetch(api + this.state.value, {
       method: "GET",
+      headers: new Headers({
+        Authorization: "Basic " + window.accessToken
+      }),
       mode: "cors"
     })
       .then(response => response.json())
