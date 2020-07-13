@@ -8,13 +8,10 @@ const loginUrl =
 
 class App extends React.Component {
   componentDidMount() {
-    window.accessToken = new URLSearchParams(window.location.search).get(
-      "access_token"
-    );
+    const search = new URLSearchParams(window.location.search);
+    window.accessToken = search.get("access_token");
     console.log(window.accessToken);
-    window.idToken = new URLSearchParams(window.location.search).get(
-      "id_token"
-    );
+    window.idToken = search.get("id_token");
     console.log(window.idToken);
   }
 
@@ -29,6 +26,7 @@ class App extends React.Component {
         </button>
       );
     }
+
     return (
       <div className="App">
         <h3>Welcome7</h3>
