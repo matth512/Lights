@@ -10,7 +10,7 @@ export default function App() {
   return (
     <div className="App">
       <h3>Welcome</h3>
-      <button onclick={event => (window.location.href = loginUrl)}>
+      <button onClick={event => (window.location.href = loginUrl)}>
         Login with Google
       </button>
       <ConfigEditor />
