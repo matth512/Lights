@@ -52,7 +52,7 @@ export class ConfigEditor extends React.Component {
     fetch(api + this.state.value, {
       method: "GET",
       headers: new Headers({
-        Authorization: "Basic " + window.accessToken
+        Authorization: window.idToken
       }),
       mode: "cors"
     })
