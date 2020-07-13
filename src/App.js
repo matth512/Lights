@@ -19,13 +19,20 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <h3>Welcome7</h3>
+    let editor;
+    if (window.idToken !== null) {
+      editor = <ConfigEditor />;
+    } else {
+      editor = (
         <button onClick={event => (window.location.href = loginUrl)}>
           Login with Google
         </button>
-        <ConfigEditor />
+      );
+    }
+    return (
+      <div className="App">
+        <h3>Welcome7</h3>
+        {editor}
       </div>
     );
   }
