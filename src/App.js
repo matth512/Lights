@@ -10,12 +10,12 @@ class App extends React.Component {
   componentDidMount() {
     const search = new URLSearchParams(window.location.search);
     window.accessToken = search.get("access_token");
-    console.log(window.accessToken);
+    //  console.log(window.accessToken);
     window.idToken = search.get("id_token");
-    console.log(window.idToken);
   }
 
   render() {
+    console.log(window.idToken);
     let editor;
     if (window.idToken !== null) {
       editor = <ConfigEditor />;
