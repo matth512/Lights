@@ -7,15 +7,16 @@ const loginUrl =
   "https://helgren.auth.us-east-2.amazoncognito.com/login?response_type=token&client_id= 38aqmkuo5qpqod397p6nmdij2q&redirect_uri=https%3A%2F%2Fhelgren-lights.s3.us-east-2.amazonaws.com%2Findex.html";
 
 class App extends React.Component {
-  componentDidMount() {
-    console.log(window.location.hash);
-    const search = new URLSearchParams(window.location.hash);
+  constructor() {
+    super();
+    console.log(window.location.hash.substring(1));
+    const search = new URLSearchParams(window.location.hash.substring(1));
     window.accessToken = search.get("access_token");
     window.idToken = search.get("id_token");
+    console.log("idtoken: " + window.idToken);
   }
 
   render() {
-    console.log(window.idToken);
     let editor;
     if (window.idToken !== undefined) {
       editor = <ConfigEditor />;
