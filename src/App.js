@@ -30,7 +30,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <h3>Welcome7</h3>
+        <h3>Welcome</h3>
         {editor}
       </div>
     );
