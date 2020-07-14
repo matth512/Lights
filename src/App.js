@@ -8,7 +8,7 @@ const loginUrl =
 
 class App extends React.Component {
   componentDidMount() {
-    const search = new URLSearchParams(window.location.search);
+    const search = new URLSearchParams(window.location.hash);
     window.accessToken = search.get("access_token");
     //  console.log(window.accessToken);
     window.idToken = search.get("id_token");
