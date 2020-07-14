@@ -17,7 +17,7 @@ class App extends React.Component {
   render() {
     console.log(window.idToken);
     let editor;
-    if (window.idToken !== null) {
+    if (window.idToken !== undefined) {
       editor = <ConfigEditor />;
     } else {
       editor = (
