@@ -34,8 +34,10 @@ export class ConfigEditor extends React.Component {
     fetch(api + this.state.value, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: window.idToken
       },
+      mode: "cors",
       body: output
     })
       .then(response => response.text())
