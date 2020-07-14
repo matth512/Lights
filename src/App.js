@@ -8,9 +8,9 @@ const loginUrl =
 
 class App extends React.Component {
   componentDidMount() {
+    console.log(window.location.hash);
     const search = new URLSearchParams(window.location.hash);
     window.accessToken = search.get("access_token");
-    //  console.log(window.accessToken);
     window.idToken = search.get("id_token");
   }
 
