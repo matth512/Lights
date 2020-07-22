@@ -59,8 +59,8 @@ export class ConfigEditor extends React.Component {
       mode: "cors"
     })
       .then(response => response.json())
-      //   .then(data => console.log(data));
-      .then(data => this.setState(data.c));
+      .then(data => console.log(data))
+      .then(data => this.setState(data.Items[0].c));
   }
 
   componentDidMount() {}
