@@ -60,7 +60,7 @@ export class ConfigEditor extends React.Component {
     })
       .then(response => response.json())
       .then(data => console.log(data))
-      .then(data => this.setState(data.Items[0].c));
+      .then(data => this.setState(data.c));
   }
 
   componentDidMount() {}
