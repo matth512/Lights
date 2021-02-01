@@ -24,8 +24,8 @@ export class ConfigEditor extends React.Component {
   }
 
   handleSubmitSave(event) {
-    console.log("guid: " + this.state.value);
-    const myObj = { guid: this.state.value, c: {} };
+    console.log("guid: " + this.state.guid);
+    const myObj = { guid: this.state.guid, c: {} };
     myObj.c.lat = this.state.lat;
     myObj.c.long = this.state.long;
 
@@ -59,8 +59,8 @@ export class ConfigEditor extends React.Component {
       mode: "cors"
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
-      .then((data) => this.setState(data.c));
+    //  .then((data) => console.log(data))
+      .then((data) => this.setState({ guid: data.guid, lat: data.c.lat, long: data.c.long }));
   }
 
   componentDidMount() {}
