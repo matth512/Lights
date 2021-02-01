@@ -24,7 +24,7 @@ export class ConfigEditor extends React.Component {
   }
 
   handleSubmitSave(event) {
-    // alert("A name was submitted: " + this.state.value);
+    console.log("guid: " + this.state.value);
     const myObj = { guid: this.state.value, c: {} };
     myObj.c.lat = this.state.lat;
     myObj.c.long = this.state.long;
