@@ -40,17 +40,17 @@ export class ConfigEditor extends React.Component {
       mode: "cors",
       body: output
     })
-      .then(response => response.text())
-      .then(data => {
+      .then((response) => response.text())
+      .then((data) => {
         console.log("Success:", data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Error:", error);
       });
   }
 
   reloadData() {
-    console.log("here");
+    console.log("here6");
     fetch(api + this.state.value, {
       method: "GET",
       headers: new Headers({
@@ -58,9 +58,9 @@ export class ConfigEditor extends React.Component {
       }),
       mode: "cors"
     })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .then(data => this.setState(data.c));
+      .then((response) => response.json())
+      // .then((data) => console.log(data))
+      .then((data) => this.setState(data.c));
   }
 
   componentDidMount() {}
@@ -84,7 +84,7 @@ export class ConfigEditor extends React.Component {
               type="text"
               name="name"
               value={this.state.lat}
-              onChange={event => this.setState({ lat: event.target.value })}
+              onChange={(event) => this.setState({ lat: event.target.value })}
             />
           </label>
           <label>
@@ -93,7 +93,7 @@ export class ConfigEditor extends React.Component {
               type="text"
               name="name"
               value={this.state.long}
-              onChange={event => this.setState({ long: event.target.value })}
+              onChange={(event) => this.setState({ long: event.target.value })}
             />
           </label>
           <input type="submit" value="Load" />
