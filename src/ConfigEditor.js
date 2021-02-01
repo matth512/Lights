@@ -31,7 +31,7 @@ export class ConfigEditor extends React.Component {
 
     const output = JSON.stringify(myObj);
     console.log(output);
-    fetch(api + this.state.value, {
+    fetch(api, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
